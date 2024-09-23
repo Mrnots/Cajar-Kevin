@@ -17,21 +17,21 @@
     <div class="module">
         <h2>Palíndromo de Doble Base</h2>
         <input type="number" id="palindromeInput" placeholder="Número">
-        <button onclick="palindromeModule.checkPalindrome()">Verificar</button>
+        <button onclick="palindromeModule.validacion()">Verificar</button>
         <p id="palindromeResult"></p>
     </div>
 
     <div class="module">
         <h2>Contar Caracteres de Cadena</h2>
         <input type="text" id="countInput" placeholder="Cadena">
-        <button onclick="countModule.countCharacters()">Contar</button>
+        <button onclick="countModule.contaCaracteres()">Contar</button>
         <p id="countResult"></p>
     </div>
 
     <div class="module">
         <h2>Verificar Año Bisiesto</h2>
         <input type="number" id="leapYearInput" placeholder="Año">
-        <button onclick="leapYearModule.checkLeapYear()">Verificar</button>
+        <button onclick="leapYearModule.valiyear()">Verificar</button>
         <p id="leapYearResult"></p>
     </div>
 
@@ -75,7 +75,7 @@
         })();
 
         const moduloAbisiesto = (() => {
-            function validacion() {
+            function valiyear() {
                 const year = parseInt(document.getElementById("añoBisiestoInput").value);
                 const bisiesto = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
                 document.getElementById("añoBisiestoResult").textContent = b ? 
@@ -83,7 +83,7 @@
                     `${year} no es un año bisiesto.`;
             }
 
-            return { validacion };
+            return { valiyear };
         })();
 
         const primeModule = (() => {
