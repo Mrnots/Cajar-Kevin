@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Inverso en Tiempo Real</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        input { margin-bottom: 10px; }
+        .output { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Escribe algo</h1>
+    <input type="text" id="textInput" placeholder="Escribe aquí...">
+    <span class="output" id="reversedOutput"></span>
+
+    <script>
+        const textInput = document.getElementById("textInput");
+        const reversedOutput = document.getElementById("reversedOutput");
+
+        textInput.addEventListener("input", function() {
+            const inputText = textInput.value;
+            const reversedText = inputText.split('').reverse().join('');
+            reversedOutput.textContent = reversedText;
+        });
+    </script>
+
+</body>
+</html>
