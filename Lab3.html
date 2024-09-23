@@ -52,7 +52,7 @@
                 const num = parseInt(document.getElementById("palindromeInput").value);
                 const binario = num.toString(2);
                 const resp = isPalindrome(num.toString()) && isPalindrome(binario);
-                document.getElementById("palindromeResult").textContent = resup ? 
+                document.getElementById("palindromeResult").textContent = resp ? 
                     `${number} es un palíndromo en ambas bases.` : 
                     `${number} no es un palíndromo en ambas bases.`;
             }
