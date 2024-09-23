@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas de aplicación usando JS</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .module { margin: 20px; }
+        input { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>Funciones JavaScript</h1>
+
+    <div class="module">
+        <h2>Palíndromo de Doble Base</h2>
+        <input type="number" id="palindromeInput" placeholder="Número">
+        <button onclick="palindromeModule.checkPalindrome()">Verificar</button>
+        <p id="palindromeResult"></p>
+    </div>
+
+    <div class="module">
+        <h2>Contar Caracteres de Cadena</h2>
+        <input type="text" id="countInput" placeholder="Cadena">
+        <button onclick="countModule.countCharacters()">Contar</button>
+        <p id="countResult"></p>
+    </div>
+
+    <div class="module">
+        <h2>Verificar Año Bisiesto</h2>
+        <input type="number" id="leapYearInput" placeholder="Año">
+        <button onclick="leapYearModule.checkLeapYear()">Verificar</button>
+        <p id="leapYearResult"></p>
+    </div>
+
+    <div class="module">
+        <h2>Sumatoria de Números Primos</h2>
+        <input type="number" id="primeInput" placeholder="Número (0 < n < 1000000)">
+        <button onclick="primeModule.sumPrimes()">Calcular</button>
+        <p id="primeResult"></p>
+    </div>
+
+    <script>
+        const palindromeModule = (() => {
+            function isPalindrome(str) {
+                return str === str.split('').reverse().join('');
+            }
+
+            function checkPalindrome() {
+                const number = parseInt(document.getElementById("palindromeInput").value);
+                const binary = number.toString(2);
+                const result = isPalindrome(number.toString()) && isPalindrome(binary);
+                document.getElementById("palindromeResult").textContent = result ? 
+                    `${number} es un palíndromo en ambas bases.` : 
+                    `${number} no es un palíndromo en ambas bases.`;
+            }
+
+            return { checkPalindrome };
+        })();
+
+        const countModule = (() => {
+            function countCharacters() {
+                const text = document.getElementById("countInput").value;
+                const counts = {};
+                for (let char of text) {
+                    counts[char] = (counts[char] || 0) + 1;
+                }
+                const result = Object.entries(counts).map(([char, count]) => `${count} ${char}`).join(', ');
+                document.getElementById("countResult").textContent = result || "No hay caracteres.";
+            }
+
+            return { countCharacters };
+        })();
+
+        const leapYearModule = (() => {
+            function checkLeapYear() {
+                const year = parseInt(document.getElementById("leapYearInput").value);
+                const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+                document.getElementById("leapYearResult").textContent = isLeap ? 
+                    `${year} es un año bisiesto.` : 
+                    `${year} no es un año bisiesto.`;
+            }
+
+            return { checkLeapYear };
+        })();
+
+        const primeModule = (() => {
+            function isPrime(num) {
+                if (num < 2) return false;
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            function sumPrimes() {
+                const n = parseInt(document.getElementById("primeInput").value);
+                let sum = 0;
+                for (let i = 2; i < n; i++) {
+                    if (isPrime(i)) {
+                        sum += i;
+                    }
+                }
+                document.getElementById("primeResult").textContent = `La suma de números primos menores que ${n} es: ${sum}`;
+            }
+
+            return { sumPrimes };
+        })();
+    </script>
+
+</body>
+</html>
