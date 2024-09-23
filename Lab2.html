@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JavaScript</title>
+</head>
+<body>
+
+    <p id="respuesta"></p>
+
+    <script>
+        const respuesta = "JavaScript es un lenguaje de programación interpretado, orientado a objetos y basado en prototipos, que se utiliza principalmente para crear contenido interactivo en páginas web. Se asemeja a Java en su sintaxis, ya que ambos comparten una estructura similar debido a su origen en el lenguaje C, pero son lenguajes completamente diferentes en cuanto a su uso y ejecución.";
+        document.getElementById("respuesta").textContent = respuesta;
+
+        var num1 = 10;
+        var num2 = 5;
+        console.log("Suma:", num1 + num2);
+        console.log("Resta:", num1 - num2);
+        console.log("Multiplicacion:", num1 * num2);
+        console.log("Division:", num1 / num2);
+
+        let str1 = "Me siento y me encuentro en soledad, estoy ";
+        let str2 = "vacio, pero no creo que sea tan malo";
+        console.log("Concatenacion:", str1 + str2);
+
+        const numeroConst = 42;
+        const textoConst = "Este es un texto";
+        console.log("El tipo de dato del primer const es:", typeof numeroConst);
+        console.log("El tipo de dato del segundo const es:", typeof textoConst);
+
+        const obj = {
+            numero: 123,
+            texto: "XD",
+            booleano: true,
+            objetoVacio: {}
+        };
+        console.log("Objeto: ", obj);
+
+        function sumaMulti(num) {
+            let suma = 0;
+            for (let i = 1; i < num; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    suma += i;
+                }
+            }
+            return suma;
+        }
+
+        const respSuma = sumaMulti(10);
+        console.log("Suma de multiplos de 3 o 5 menores que 10:", respSuma);
+    </script>
+
+</body>
+</html>
