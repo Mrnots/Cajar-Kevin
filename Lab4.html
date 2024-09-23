@@ -20,7 +20,7 @@
         const cadena = document.getElementById("cInput");
         const reversedOutput = document.getElementById("reversedOutput");
 
-        textInput.addEventListener("input", function() {
+        cadena.addEventListener("input", function() {
             const inputText = cadena.value;
             const reversedText = inputText.split('').reverse().join('');
             reversedOutput.textContent = reversedText;
