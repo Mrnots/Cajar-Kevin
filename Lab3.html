@@ -53,8 +53,8 @@
                 const binario = num.toString(2);
                 const resp = isPalindrome(num.toString()) && isPalindrome(binario);
                 document.getElementById("palindromeResult").textContent = resp ? 
-                    `${number} es un palíndromo en ambas bases.` : 
-                    `${number} no es un palíndromo en ambas bases.`;
+                    `${num} es un palíndromo en ambas bases.` : 
+                    `${num} no es un palíndromo en ambas bases.`;
             }
 
             return { validacion };
@@ -67,7 +67,7 @@
                 for (let char of t) {
                     contador[char] = (contador[char] || 0) + 1;
                 }
-                const resp = Object.entries(counts).map(([char, count]) => `${count} ${char}`).join(', ');
+                const resp = Object.entries(contador).map(([char, count]) => `${count} ${char}`).join(', ');
                 document.getElementById("countResult").textContent = resp || "No hay caracteres.";
             }
 
@@ -78,7 +78,7 @@
             function valiyear() {
                 const year = parseInt(document.getElementById("añoBisiestoInput").value);
                 const bisiesto = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-                document.getElementById("añoBisiestoResult").textContent = b ? 
+                document.getElementById("añoBisiestoResult").textContent = bisiesto ? 
                     `${year} es un año bisiesto.` : 
                     `${year} no es un año bisiesto.`;
             }
