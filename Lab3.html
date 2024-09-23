@@ -43,47 +43,47 @@
     </div>
 
     <script>
-        const palindromeModule = (() => {
+        const moduloPalindromo = (() => {
             function isPalindrome(str) {
                 return str === str.split('').reverse().join('');
             }
 
-            function checkPalindrome() {
-                const number = parseInt(document.getElementById("palindromeInput").value);
-                const binary = number.toString(2);
-                const result = isPalindrome(number.toString()) && isPalindrome(binary);
-                document.getElementById("palindromeResult").textContent = result ? 
+            function validacion() {
+                const num = parseInt(document.getElementById("palindromeInput").value);
+                const binario = num.toString(2);
+                const resp = isPalindrome(num.toString()) && isPalindrome(binario);
+                document.getElementById("palindromeResult").textContent = resup ? 
                     `${number} es un palíndromo en ambas bases.` : 
                     `${number} no es un palíndromo en ambas bases.`;
             }
 
-            return { checkPalindrome };
+            return { validacion };
         })();
 
-        const countModule = (() => {
-            function countCharacters() {
-                const text = document.getElementById("countInput").value;
-                const counts = {};
-                for (let char of text) {
-                    counts[char] = (counts[char] || 0) + 1;
+        const moduloContador = (() => {
+            function contaCaracteres() {
+                const t = document.getElementById("countInput").value;
+                const contador = {};
+                for (let char of t) {
+                    contador[char] = (contador[char] || 0) + 1;
                 }
-                const result = Object.entries(counts).map(([char, count]) => `${count} ${char}`).join(', ');
-                document.getElementById("countResult").textContent = result || "No hay caracteres.";
+                const resp = Object.entries(counts).map(([char, count]) => `${count} ${char}`).join(', ');
+                document.getElementById("countResult").textContent = resp || "No hay caracteres.";
             }
 
-            return { countCharacters };
+            return { contaCaracteres };
         })();
 
-        const leapYearModule = (() => {
-            function checkLeapYear() {
-                const year = parseInt(document.getElementById("leapYearInput").value);
-                const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-                document.getElementById("leapYearResult").textContent = isLeap ? 
+        const moduloAbisiesto = (() => {
+            function validacion() {
+                const year = parseInt(document.getElementById("añoBisiestoInput").value);
+                const bisiesto = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+                document.getElementById("añoBisiestoResult").textContent = b ? 
                     `${year} es un año bisiesto.` : 
                     `${year} no es un año bisiesto.`;
             }
 
-            return { checkLeapYear };
+            return { validacion };
         })();
 
         const primeModule = (() => {
