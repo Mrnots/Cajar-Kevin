@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Inverso en Tiempo Real</title>
+    <style>
+        
+        body { font-family: Arial, sans-serif; background-color: black; color: white; }
+        input { margin-bottom: 10px; }
+        .output { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Escriba en el espacio</h1>
+    
+    <main>
+        <section>
+            <form>
+                <label for="cadena">Cadena:</label>
+                <input type="text" id="cInput" name="cadena">
+                <label for="color">Color:</label>
+                <select name="color" id="colorSelector">
+                    <option value="white">Blanco</option>
+                    <option value="blue">Azul</option>
+                    <option value="gray">Gris</option>
+                </select>
+            </form>
+        </section>
+        <section>
+            <span class="output" id="reversedOutput"></span>
+        </section>
+        <section class="response-wrapper response-wrapper2">
+            <div id="response"></div>
+        </section>
+    </main>
+
+    <script>
+        const cadena = document.getElementById("cInput");
+        const reversedOutput = document.getElementById("reversedOutput");
+        const colorSelector = document.getElementById("colorSelector");
+        const response = document.getElementById("response");
+
+        cadena.addEventListener("input", function() {
+            const inputText = cadena.value;
+            const reversedText = inputText.split('').reverse().join('');
+            reversedOutput.textContent = reversedText;
+        });
+
+        colorSelector.addEventListener("change", function() {
+            const selectedColor = colorSelector.value;
+            reversedOutput.style.color = selectedColor;
+        });
+    </script>
+</body>
+</html>
